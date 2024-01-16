@@ -1,7 +1,7 @@
 package ge.ibsu.demo.controllers;
 
-
 import ge.ibsu.demo.dto.TestPerson;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,13 +11,14 @@ import org.springframework.web.bind.annotation.RestController;
 public class TestController {
 
     @RequestMapping(value = "/hello", method = RequestMethod.GET, produces = {"application/json"})
-    public String hello() {
+    public String test() {
         return "Hello From Server";
     }
 
-    @RequestMapping(value = "/hello", method = RequestMethod.GET, produces = {"application/json"})
-    public TestPerson test(TestPerson testPerson) {
-        testPerson.setFirstName((testPerson.getFirstName() + "from server"));
+    @RequestMapping(value = "/person", method = RequestMethod.POST, produces = {"application/json"})
+    public TestPerson testPost(@RequestBody TestPerson testPerson) {
+        testPerson.setFirstName(testPerson.getFirstName() + " from server");
         return testPerson;
     }
+
 }

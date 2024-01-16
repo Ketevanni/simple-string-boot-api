@@ -1,6 +1,7 @@
 package ge.ibsu.demo.dto;
 
 public class TestPerson {
+
     private String firstName;
     private String lastName;
 
