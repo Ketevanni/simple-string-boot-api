@@ -3,7 +3,7 @@ package ge.ibsu.demo.entities;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "address")
+@Table(name = "city")
 public class City {
 
     @Id
