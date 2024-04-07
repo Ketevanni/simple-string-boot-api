@@ -22,6 +22,29 @@ public class Film {
     @Column(name = "release_year")
     private Integer release_year;
 
+    @Column(name = "rating")
+    private String rating;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "language_id")
+    private Language language;
+
+    public String getRating() {
+        return rating;
+    }
+
+    public void setRating(String rating) {
+        this.rating = rating;
+    }
+
+    public Language getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(Language language) {
+        this.language = language;
+    }
+
     public Long getId() {
         return id;
     }
