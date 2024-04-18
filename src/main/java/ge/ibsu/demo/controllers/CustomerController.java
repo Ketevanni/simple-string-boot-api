@@ -59,4 +59,10 @@ public class CustomerController {
     public Page<CustomerInfo> findCustomer(@RequestBody RequestData rd) throws Exception {
         return customerService.findCustomer(rd.getPaging());
     }
+
+    @RequestMapping(value = "/searchAddress", method = RequestMethod.POST, produces = {"application/json"})
+    public Page<CustomerAddressInfo> searchAddressInfo(@RequestBody RequestData<SearchCustomer> rd) throws Exception {
+        GeneralUtil.checkRequiredProperties(rd.getData(), Arrays.asList("active", "searchText"));
+        return customerService.searchAddressInfo(rd.getData(), rd.getPaging());
+    }
 }
